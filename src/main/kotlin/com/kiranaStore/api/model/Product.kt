@@ -4,7 +4,7 @@ import java.math.BigDecimal
 import java.util.*
 
 data class Product(
-        val id: UUID,
+        val id: Int,
         val name: String,
         val description: String,
         val price: BigDecimal,
