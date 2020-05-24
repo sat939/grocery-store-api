@@ -23,6 +23,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.hibernate:hibernate-core:5.4.15.Final")
 	implementation("mysql:mysql-connector-java")
+	testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+	testImplementation("org.mockito:mockito-junit-jupiter:2.23.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}

@@ -1,20 +1,19 @@
-package com.kiranaStore.api.products
+package com.kiranaStore.api.unitTest.products
 
 import com.kiranaStore.api.model.Product
-import com.kiranaStore.api.productsTest.ProductsController
+import com.kiranaStore.api.products.ProductController
+import com.kiranaStore.api.products.ProductService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
-import org.springframework.boot.test.mock.mockito.MockBean
 import java.math.BigDecimal
 
-class ProductsControllerTest() {
+class ProductsControllerTest {
 
     val productService = mock(ProductService::class.java)
 
-    val productsController = ProductsController(productService)
+    val productsController = ProductController(productService)
 
     @Test
     fun `when called testApi return the string`(){
