@@ -28,7 +28,6 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
-	runtimeOnly("org.postgresql:postgresql:42.1.1")
 }
 
 tasks.withType<Test> {

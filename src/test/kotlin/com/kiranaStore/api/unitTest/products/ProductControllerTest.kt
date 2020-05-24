@@ -5,11 +5,12 @@ import com.kiranaStore.api.products.ProductController
 import com.kiranaStore.api.products.ProductService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import java.math.BigDecimal
 
-class ProductsControllerTest {
+class ProductControllerTest {
 
     val productService = mock(ProductService::class.java)
 
@@ -36,5 +37,13 @@ class ProductsControllerTest {
 
         assertEquals(result, expectedProducts)
 
+    }
+
+    @Test
+    fun `when failed due to any reason then throw exception`(){
+
+        `when`(productService.getProducts()).thenThrow(RuntimeException("There is an error processing your request"))
+
+       assertThrows<java.lang.RuntimeException> { productsController.getProducts() }
     }
 }
