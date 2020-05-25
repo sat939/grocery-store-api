@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class ProductController(@Autowired val productService: ProductService) {
+class ProductController(private val productService: ProductService) {
     @GetMapping(value = ["/test"], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun testApi(): String{
+        val listEx = listOf("1","2")
         return "Hello it is working"
     }
 
