@@ -29,7 +29,7 @@ class ProductControllerTest {
 
     @Test
     fun `when called for products then return list of products`() {
-        val expectedProducts = listOf(Product(1000, "Apple", "Fruits", BigDecimal(10.50),"available" ))
+        val expectedProducts = listOf(Product(1000, "Apple", "Fruits", 10.50,"available" ))
 
         `when`(productService.getProducts()).thenReturn(expectedProducts)
 

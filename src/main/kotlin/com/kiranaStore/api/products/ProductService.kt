@@ -9,7 +9,7 @@ class ProductService(val productRepository: ProductRepository) {
 
     fun getProducts(): List<Product> {
         return productRepository.findAll()?.let { entityList ->
-            entityList.map { Product(it.id, it.name, it.description, BigDecimal(it.price), it.status) }
+            entityList.map { Product(it.id, it.name, it.description, it.price, it.status) }
         }
     }
 }

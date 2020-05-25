@@ -24,7 +24,7 @@ class ProductServiceTest {
     fun `when get products is called then return the list of products`() {
         val productEntityList = listOf(ProductEntity(20, "Apple", "fruit", 3.50,
                 150, 1, "available", LocalDateTime.now(), LocalDateTime.now()))
-        val expectedProductsList = listOf(Product(20, "Apple", "fruit", BigDecimal(3.50), "available"))
+        val expectedProductsList = listOf(Product(20, "Apple", "fruit", 3.50, "available"))
 
         `when`(productRepository.findAll()).thenReturn(productEntityList)
 

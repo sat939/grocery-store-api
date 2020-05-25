@@ -36,7 +36,7 @@ class ProductTest() {
 
     @Test
     fun `test the GET products endpoint`() {
-        val productList = listOf(Product(20, "Apple", "fruit", BigDecimal(3.50),
+        val productList = listOf(Product(20, "Apple", "fruit", 3.50,
                  "available"))
 
          `when`(productService.getProducts()).thenReturn(productList)
