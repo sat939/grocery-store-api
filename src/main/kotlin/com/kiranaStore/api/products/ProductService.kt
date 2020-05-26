@@ -13,7 +13,10 @@ class ProductService(val productRepository: ProductRepository) {
         }
     }
 
-    fun getProductsByCategory(): List<Product> {
-        return emptyList()
+    fun getProductsByCategory(categoryId: Int): List<Product> {
+        return productRepository.findAll()?.let { entityList ->
+            entityList.filter { product -> product.category_id == categoryId }
+                    .map { Product(it.id, it.name, it.description, it.price, it.status) }
+        }
     }
 }

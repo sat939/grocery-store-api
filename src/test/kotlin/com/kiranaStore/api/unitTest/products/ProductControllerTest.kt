@@ -29,7 +29,6 @@ class ProductControllerTest {
 
     @Test
     fun `when failed due to any reason then throw exception`(){
-
         `when`(productService.getProducts()).thenThrow(RuntimeException("There is an error processing your request"))
 
        assertThrows<java.lang.RuntimeException> { productsController.getProducts() }
@@ -40,7 +39,7 @@ class ProductControllerTest {
         val categoryId = 2
         val expectedProductsList = listOf(Product(2000, "Carrot", "Vegetables",3.50, "available"))
 
-        `when`(productService.getProductsByCategory()).thenReturn(expectedProductsList)
+        `when`(productService.getProductsByCategory(categoryId)).thenReturn(expectedProductsList)
 
         val result = productsController.getProducts(categoryId)
 

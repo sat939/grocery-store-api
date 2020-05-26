@@ -15,10 +15,7 @@
   ```
 * POST /productsByCategory: List all the products under specific category
     ```
-  body:
-    {
-        id: 1
-    }
+  body: 1
   
   response: 
   [

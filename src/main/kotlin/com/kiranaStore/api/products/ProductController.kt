@@ -16,7 +16,7 @@ class ProductController(private val productService: ProductService) {
     }
 
     @PostMapping(value=["/productsByCategory"], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getProducts(@RequestBody categoryId : Int) :List<Product> {
-        return emptyList()
+    fun getProducts(@RequestBody categoryId : Int) : List<Product> {
+        return productService.getProductsByCategory(categoryId)
     }
 }
