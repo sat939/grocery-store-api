@@ -8,24 +8,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
-import java.math.BigDecimal
 
 class ProductControllerTest {
 
-    val productService = mock(ProductService::class.java)
+    private val productService: ProductService = mock(ProductService::class.java)
 
-    val productsController = ProductController(productService)
-
-    @Test
-    fun `when called testApi return the string`(){
-        //Arrange
-        val expectedString = "Hello it is working"
-        //Act
-        val result = productsController.testApi()
-
-        //Assert
-        assertEquals(result, expectedString)
-    }
+    private val productsController = ProductController(productService)
 
     @Test
     fun `when called for products then return list of products`() {
@@ -45,5 +33,17 @@ class ProductControllerTest {
         `when`(productService.getProducts()).thenThrow(RuntimeException("There is an error processing your request"))
 
        assertThrows<java.lang.RuntimeException> { productsController.getProducts() }
+    }
+
+    @Test
+    fun `when searching for a specific category then return the products specific to that category`() {
+        val categoryId = 2
+        val expectedProductsList = listOf(Product(2000, "Carrot", "Vegetables",3.50, "available"))
+
+        `when`(productService.getProductsByCategory()).thenReturn(expectedProductsList)
+
+        val result = productsController.getProducts(categoryId)
+
+        assertEquals(result, expectedProductsList)
     }
 }
