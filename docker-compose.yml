@@ -5,7 +5,7 @@ services:
     container_name: docker-local-mysql
     image: mysql:5.7.21
     volumes:
-      - "./data:/var/lib/mysql"
+      - "./data:/docker-entrypoint-initdb.d"
     restart: always
     ports:
       - 3306:3306

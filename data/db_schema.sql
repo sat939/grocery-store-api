@@ -1,8 +1,26 @@
+create database sidegig;
+
 use sidegig;
 
 
+create table test_cat(id int primary key,
+						abcde varchar(30),
+						description varchar(30),
+						created_timestamp timestamp,
+                        modified_timestamp timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
 
-create table product(id int primary key, 
+
+create table category(id int primary key,
+						title varchar(30),
+						description varchar(30),
+						created_timestamp timestamp,
+                        modified_timestamp timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
+-- set global sql_mode = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';
+
+-- show variables like 'sql_mode' ; 
+										
+create table product(id int primary key,
 					name varchar(30),
 					description varchar(50),
 					price float,
@@ -12,24 +30,14 @@ create table product(id int primary key,
 					created_timestamp timestamp,
 					modified_timestamp timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     foreign key(category_id) references category(id));
-                    
--- set global sql_mode = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';
 
--- show variables like 'sql_mode' ; 
-										
-create table category(id int primary key,
-						title varchar(30),
-						description varchar(30),
-						created_timestamp timestamp,
-                        modified_timestamp timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
-                        
 -- drop table product;
 
 -- drop table category;
 
 -- alter table category modify id int;
                         
-select * from category;
+-- select * from category;
 
 insert into category values (1, 'fruits', 'eatables', now(), now());
 insert into category values (2, 'vegetables', 'eatables', now(), now());
@@ -99,4 +107,4 @@ insert into product values (40500, 'oat', 'green', 5.10, 500,5, 'available', now
 insert into product values (40600, 'hawaiian', 'brown', 3.50, 550, 5, 'available', now(), now());
 
 
-select * from product;
+-- select * from product;
