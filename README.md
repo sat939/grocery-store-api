@@ -37,9 +37,9 @@
     ```
 **Steps to run the application**
 
-* There is no flyway migration scripts for db yet, so, one should have mysql set up in their local, configure the properties according to your local db config in `application.properties`. Run the db.sql file to load the data. 
+* Run `docker-compose up -d db` to spin up the database 
 * Clone the repo
 * If gradle is set up in local
     * Run `gradle build `
-    * Then `gradle bootRun`, the server will be up on the port 8000
+    * Then `gradle bootRun`, the server will be up on the port 8000 writing the initial database scripts to the db
 * If not, open up the project in intelliJ IDE, open the `src/main/kotlin/com.kiranaStore.api/ApiApplication.kt` and run the fun `main`. IntelliJ should pick up the spring-kotlin application and run the app on port 8000.
