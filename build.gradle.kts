@@ -22,7 +22,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.hibernate:hibernate-core:5.4.15.Final")
-	implementation("mysql:mysql-connector-java:8.0.17")
+	implementation("mysql:mysql-connector-java:8.0.14")
+	implementation("org.flywaydb:flyway-core")
 	testImplementation ("org.junit.jupiter:junit-jupiter-engine:5.2.0")
 	testImplementation("org.mockito:mockito-junit-jupiter:2.23.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
